@@ -44,11 +44,11 @@ Linearity：若有一场博弈u的奖励总可以表示为两个小博弈v, w �
 
 ### advantages
 
-由 Efficiency, 可以保证公平的分配结果, 而其他模型无法保证, 例如 LIME拟合出的模型存在bias时, bias的贡献无法分配
+1. 由 Efficiency, 可以保证公平的分配结果, 而其他模型无法保证, 例如 LIME拟合出的模型存在bias时, bias的贡献无法分配
 
-Shapley Value 的计算不受限于局部范围, 可以在全局范围对比不同数据
+2. Shapley Value 的计算不受限于局部范围, 可以在全局范围对比不同数据
 
-Shapley Value 是唯一拥有上述四个性质的指标, 有牢固的理论基础却对模型本身没有任何假设
+3. Shapley Value 是唯一拥有上述四个性质的指标, 有牢固的理论基础同时对模型本身没有任何假设
 
 ### disadvantages
 
