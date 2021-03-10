@@ -27,11 +27,9 @@ The Shapley value 本是用于评价
 
 c 的shapley value 则为 (2 * 3 + 1 * 5 + 1* 4 + 2 * 5) / (2 + 1 + 1 + 2) = 25 / 6
 
-*Note: 因为c的位置是变动的 所以计算case的个数需要用排列计数来计算*
-
 ### properties
 
-Shapley值是满足 Efficiency,Symmetry, Dummy 和 Additivity 的唯一贡献量化指标。
+Shapley Value 是满足 Efficiency,Symmetry, Dummy 和 Additivity 的唯一贡献量化指标。
 
 Dummy：若某一玩家i满足对任意集合，均有 [公式] ，则该玩家i为一个dummy玩家。此时，dummy玩家i满足 [公式] 。(check)
 
@@ -40,3 +38,21 @@ Symmetry：对于任意两个玩家i、j，若对于任意集合 [公式] ，均
 Efficiency：保证了所有玩家能够获得的总奖励可以被分配给N中每一个玩家, 即 [公式] 。
 
 Linearity：若有三个博弈u，v，w，满足对于任意玩家集合 [公式] 都有 [公式] ，则对于任意玩家i，其在博弈u中的Shapley value可以表示为其在另外两场博弈中的Shapley value之和，即 [公式] 。
+
+### advantages
+
+由 Efficiency, 可以保证公平的分配结果, 而其他模型无法保证, 例如 LIME拟合出的模型存在bias时, bias的贡献无法分配
+
+Shapley Value 的计算不受限于局部范围, 可以在全局范围对比不同数据
+
+Shapley Value 是唯一拥有上述四个性质的指标, 有牢固的理论基础却对模型本身没有任何假设
+
+### disadvantages
+
+1. 计算量大, 特征数较多时只能通过随机采样的方式计算
+
+2. Shapley Value 是为分配而非预测设计的, 所以不能像其他拟合解释模型一样进行预测
+
+3. 实际部分变量是相关的, 而在模拟数据时因为无法得知关联性, 所以对特征的是独立采样的, 可能采样到不存在的样例
+
+有许多针对 Shapley Value 的缺点进行改进的方法, 虽然失去了部分重要性质但是却从实用性得到了增强,  比如 SHAP 就包含大量针对计算性\解释性以及预测的改进
